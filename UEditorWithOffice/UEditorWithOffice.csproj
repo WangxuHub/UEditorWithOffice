@@ -80,6 +80,7 @@
     <Content Include="UEditor\third-party\video-js\font\vjs.eot" />
     <Content Include="UEditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="UEditor\third-party\video-js\font\vjs.woff" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -229,23 +230,6 @@
     <Content Include="UEditor\dialogs\wordimage\wordimage.html" />
     <Content Include="UEditor\dialogs\wordimage\wordimage.js" />
     <Content Include="UEditor\index.html" />
-    <Content Include="UEditor\lang\en\en.js" />
-    <Content Include="UEditor\lang\en\images\addimage.png" />
-    <Content Include="UEditor\lang\en\images\alldeletebtnhoverskin.png" />
-    <Content Include="UEditor\lang\en\images\alldeletebtnupskin.png" />
-    <Content Include="UEditor\lang\en\images\background.png" />
-    <Content Include="UEditor\lang\en\images\button.png" />
-    <Content Include="UEditor\lang\en\images\copy.png" />
-    <Content Include="UEditor\lang\en\images\deletedisable.png" />
-    <Content Include="UEditor\lang\en\images\deleteenable.png" />
-    <Content Include="UEditor\lang\en\images\listbackground.png" />
-    <Content Include="UEditor\lang\en\images\localimage.png" />
-    <Content Include="UEditor\lang\en\images\music.png" />
-    <Content Include="UEditor\lang\en\images\rotateleftdisable.png" />
-    <Content Include="UEditor\lang\en\images\rotateleftenable.png" />
-    <Content Include="UEditor\lang\en\images\rotaterightdisable.png" />
-    <Content Include="UEditor\lang\en\images\rotaterightenable.png" />
-    <Content Include="UEditor\lang\en\images\upload.png" />
     <Content Include="UEditor\lang\zh-cn\images\copy.png" />
     <Content Include="UEditor\lang\zh-cn\images\localimage.png" />
     <Content Include="UEditor\lang\zh-cn\images\music.png" />
@@ -356,10 +340,8 @@
     <Content Include="UEditor\third-party\zeroclipboard\ZeroClipboard.min.js" />
     <Content Include="UEditor\third-party\zeroclipboard\ZeroClipboard.swf" />
     <Content Include="UEditor\ueditor.all.js" />
-    <Content Include="UEditor\ueditor.all.min.js" />
     <Content Include="UEditor\ueditor.config.js" />
     <Content Include="UEditor\ueditor.parse.js" />
-    <Content Include="UEditor\ueditor.parse.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -372,6 +354,13 @@
     <Compile Include="UEditor\net\App_Code\NotSupportedHandler.cs" />
     <Compile Include="UEditor\net\App_Code\PathFormater.cs" />
     <Compile Include="UEditor\net\App_Code\UploadHandler.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UEditor\net\.vs\net\v14\" />
