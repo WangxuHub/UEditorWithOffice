@@ -22,8 +22,8 @@
 <body>
     <div>
         <h1>完整demo</h1>
-        <script id="editor" type="text/plain" style="width:1024px;height:500px;">
-        </script>
+        <div id="editor" type="text/plain" style="width:1024px;height:500px;">
+        </div>
     </div>
     <div id="btns">
         <div>
