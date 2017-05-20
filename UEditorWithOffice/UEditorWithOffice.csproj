@@ -80,6 +80,7 @@
     <Content Include="UEditor\third-party\video-js\font\vjs.eot" />
     <Content Include="UEditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="UEditor\third-party\video-js\font\vjs.woff" />
+    <Content Include="UEditor\third-party\webuploader\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -343,12 +344,17 @@
     <Content Include="UEditor\third-party\webuploader\webuploader.css" />
     <Content Include="UEditor\third-party\webuploader\webuploader.custom.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.custom.min.js" />
+    <Content Include="UEditor\third-party\webuploader\webuploader.fis.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.flashonly.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.flashonly.min.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.html5only.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.html5only.min.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.min.js" />
+    <Content Include="UEditor\third-party\webuploader\webuploader.noimage.js" />
+    <Content Include="UEditor\third-party\webuploader\webuploader.noimage.min.js" />
+    <Content Include="UEditor\third-party\webuploader\webuploader.nolog.js" />
+    <Content Include="UEditor\third-party\webuploader\webuploader.nolog.min.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.withoutimage.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.withoutimage.min.js" />
     <Content Include="UEditor\third-party\xss.min.js" />
