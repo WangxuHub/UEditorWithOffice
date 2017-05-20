@@ -242,5 +242,5 @@ ModelManifest.xml
 .paket/paket.exe
 
 # FAKE - F# Make
-.fake/
 /UEditorWithOffice/UEditor/net/upload
+/packages
