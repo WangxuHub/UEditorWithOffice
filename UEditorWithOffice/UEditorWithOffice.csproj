@@ -71,12 +71,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HtmlPage1.html" />
     <Content Include="packages.config" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-sanitize.js" />
     <Content Include="Scripts\angular-sanitize.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\xss.js" />
+    <Content Include="Scripts\xss.min.js" />
+    <Content Include="test.html" />
     <Content Include="UEditor\local-resource\ueditor-list\dash.gif" />
     <Content Include="UEditor\local-resource\ueditor-list\dot.gif" />
     <Content Include="UEditor\local-resource\ueditor-list\list-cn-1-1.gif" />
