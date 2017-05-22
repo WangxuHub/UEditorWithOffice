@@ -43,6 +43,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\CommonDll\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Pdf">
+      <HintPath>..\CommonDll\Aspose.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Slides">
+      <HintPath>..\CommonDll\Aspose.Slides.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Words">
+      <HintPath>..\CommonDll\Aspose.Words.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -72,6 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HtmlPage1.html" />
+    <Content Include="Example\addCustomizeButton.js" />
+    <Content Include="Example\addCustomizeCombox.js" />
+    <Content Include="Example\addCustomizeDialog.js" />
     <Content Include="packages.config" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-sanitize.js" />
@@ -101,6 +116,34 @@
     <Content Include="UEditor\local-resource\ueditor-list\list-cn-1-23.gif" />
     <Content Include="UEditor\local-resource\ueditor-list\list-cn-1-24.gif" />
     <Content Include="UEditor\local-resource\ueditor-list\list-cn-1-25.gif" />
+    <Content Include="UEditor\dysoft-extension\fileTypeImages\icon_chm.gif" />
+    <Content Include="UEditor\dysoft-extension\fileTypeImages\icon_default.png" />
+    <Content Include="UEditor\dysoft-extension\fileTypeImages\icon_doc.gif" />
+    <Content Include="UEditor\dysoft-extension\fileTypeImages\icon_exe.gif" />
+    <Content Include="UEditor\dysoft-extension\fileTypeImages\icon_jpg.gif" />
+    <Content Include="UEditor\dysoft-extension\fileTypeImages\icon_mp3.gif" />
+    <Content Include="UEditor\dysoft-extension\fileTypeImages\icon_mv.gif" />
+    <Content Include="UEditor\dysoft-extension\fileTypeImages\icon_pdf.gif" />
+    <Content Include="UEditor\dysoft-extension\fileTypeImages\icon_ppt.gif" />
+    <Content Include="UEditor\dysoft-extension\fileTypeImages\icon_psd.gif" />
+    <Content Include="UEditor\dysoft-extension\fileTypeImages\icon_rar.gif" />
+    <Content Include="UEditor\dysoft-extension\fileTypeImages\icon_txt.gif" />
+    <Content Include="UEditor\dysoft-extension\fileTypeImages\icon_xls.gif" />
+    <Content Include="UEditor\dysoft-extension\images\alignicon.gif" />
+    <Content Include="UEditor\dysoft-extension\images\alignicon.png" />
+    <Content Include="UEditor\dysoft-extension\images\bg.png" />
+    <Content Include="UEditor\dysoft-extension\images\file-icons.gif" />
+    <Content Include="UEditor\dysoft-extension\images\file-icons.png" />
+    <Content Include="UEditor\dysoft-extension\images\icons.gif" />
+    <Content Include="UEditor\dysoft-extension\images\icons.png" />
+    <Content Include="UEditor\dysoft-extension\images\image.png" />
+    <Content Include="UEditor\dysoft-extension\images\progress.png" />
+    <Content Include="UEditor\dysoft-extension\images\success.gif" />
+    <Content Include="UEditor\dysoft-extension\images\success.png" />
+    <Content Include="UEditor\dysoft-extension\OfficeConvent.css" />
+    <Content Include="UEditor\dysoft-extension\OfficeConvent.html" />
+    <Content Include="UEditor\dysoft-extension\OfficeConvent.js" />
+    <Content Include="UEditor\dysoft-extension\OfficeConvent.register.js" />
     <Content Include="UEditor\local-resource\ueditor-list\list-cn-1-26.gif" />
     <Content Include="UEditor\local-resource\ueditor-list\list-cn-1-27.gif" />
     <Content Include="UEditor\local-resource\ueditor-list\list-cn-1-28.gif" />
@@ -685,9 +728,8 @@
     <Content Include="UEditor\third-party\video-js\font\vjs.eot" />
     <Content Include="UEditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="UEditor\third-party\video-js\font\vjs.woff" />
+    <Content Include="UEditor\third-party\webuploader\README.md" />
     <Content Include="WebForm1.aspx" />
-    <Content Include="Scripts\angular.min.js.map" />
-    <Content Include="Scripts\angular-sanitize.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -837,6 +879,23 @@
     <Content Include="UEditor\dialogs\wordimage\wordimage.html" />
     <Content Include="UEditor\dialogs\wordimage\wordimage.js" />
     <Content Include="UEditor\index.html" />
+    <Content Include="UEditor\lang\en\en.js" />
+    <Content Include="UEditor\lang\en\images\addimage.png" />
+    <Content Include="UEditor\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="UEditor\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="UEditor\lang\en\images\background.png" />
+    <Content Include="UEditor\lang\en\images\button.png" />
+    <Content Include="UEditor\lang\en\images\copy.png" />
+    <Content Include="UEditor\lang\en\images\deletedisable.png" />
+    <Content Include="UEditor\lang\en\images\deleteenable.png" />
+    <Content Include="UEditor\lang\en\images\listbackground.png" />
+    <Content Include="UEditor\lang\en\images\localimage.png" />
+    <Content Include="UEditor\lang\en\images\music.png" />
+    <Content Include="UEditor\lang\en\images\rotateleftdisable.png" />
+    <Content Include="UEditor\lang\en\images\rotateleftenable.png" />
+    <Content Include="UEditor\lang\en\images\rotaterightdisable.png" />
+    <Content Include="UEditor\lang\en\images\rotaterightenable.png" />
+    <Content Include="UEditor\lang\en\images\upload.png" />
     <Content Include="UEditor\lang\zh-cn\images\copy.png" />
     <Content Include="UEditor\lang\zh-cn\images\localimage.png" />
     <Content Include="UEditor\lang\zh-cn\images\music.png" />
@@ -934,12 +993,17 @@
     <Content Include="UEditor\third-party\webuploader\webuploader.css" />
     <Content Include="UEditor\third-party\webuploader\webuploader.custom.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.custom.min.js" />
+    <Content Include="UEditor\third-party\webuploader\webuploader.fis.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.flashonly.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.flashonly.min.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.html5only.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.html5only.min.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.min.js" />
+    <Content Include="UEditor\third-party\webuploader\webuploader.noimage.js" />
+    <Content Include="UEditor\third-party\webuploader\webuploader.noimage.min.js" />
+    <Content Include="UEditor\third-party\webuploader\webuploader.nolog.js" />
+    <Content Include="UEditor\third-party\webuploader\webuploader.nolog.min.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.withoutimage.js" />
     <Content Include="UEditor\third-party\webuploader\webuploader.withoutimage.min.js" />
     <Content Include="UEditor\third-party\xss.min.js" />
@@ -947,8 +1011,10 @@
     <Content Include="UEditor\third-party\zeroclipboard\ZeroClipboard.min.js" />
     <Content Include="UEditor\third-party\zeroclipboard\ZeroClipboard.swf" />
     <Content Include="UEditor\ueditor.all.js" />
+    <Content Include="UEditor\ueditor.all.min.js" />
     <Content Include="UEditor\ueditor.config.js" />
     <Content Include="UEditor\ueditor.parse.js" />
+    <Content Include="UEditor\ueditor.parse.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -970,13 +1036,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UEditor\local-resource\images\babycat\" />
-    <Folder Include="UEditor\local-resource\images\bobo\" />
-    <Folder Include="UEditor\local-resource\images\face\" />
-    <Folder Include="UEditor\local-resource\images\jx2\" />
-    <Folder Include="UEditor\local-resource\images\ldw\" />
-    <Folder Include="UEditor\local-resource\images\tsj\" />
-    <Folder Include="UEditor\local-resource\images\youa\" />
     <Folder Include="UEditor\net\.vs\net\v14\" />
   </ItemGroup>
   <PropertyGroup>
