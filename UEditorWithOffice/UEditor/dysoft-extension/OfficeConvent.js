@@ -61,8 +61,6 @@
             // 上传按钮
                 $upload = $wrap.find('.uploadBtn'),
             // 上传按钮
-                $filePickerBtn = $wrap.find('.filePickerBtn'),
-            // 上传按钮
                 $filePickerBlock = $wrap.find('.filePickerBlock'),
             // 没选择文件之前的内容。
                 $placeHolder = $wrap.find('.placeholder'),
@@ -95,7 +93,7 @@
                 uploader,
                 actionUrl = editor.getActionUrl(editor.getOpt('fileActionName')),
                 fileMaxSize = editor.getOpt('fileMaxSize'),
-                acceptExtensions = (editor.getOpt('fileAllowFiles') || []).join('').replace(/\./g, ',').replace(/^[,]/, '');;
+                acceptExtensions = "doc,docx,ppt,pptx,xls,xlsx,pdf";
 
             if (!WebUploader.Uploader.support()) {
                 $('#filePickerReady').after($('<div>').html(lang.errorNotSupport)).hide();
@@ -115,14 +113,17 @@
                 fileVal: editor.getOpt('fileFieldName'),
                 duplicate: true,
                 fileSingleSizeLimit: fileMaxSize,
-                compress: false
+                compress: false,
+                //auto: true,
+                fileNumLimit:1,
+                accept: {
+                    title: 'office',
+                    extensions: acceptExtensions,
+                    mimeTypes: '.doc,.docx,.ppt,.pptx,.xls,.xlsx,.pdf'
+                },
             });
             uploader.addButton({
                 id: '#filePickerBlock'
-            });
-            uploader.addButton({
-                id: '#filePickerBtn',
-                label: lang.uploadAddFile
             });
 
             setState('pedding');
@@ -191,6 +192,7 @@
                     percentages[file.id] = [file.size, 0];
                     file.rotation = 0;
 
+                    debugger;
                     /* 检查文件格式 */
                     if (!file.ext || acceptExtensions.indexOf(file.ext.toLowerCase()) == -1) {
                         showError('not_allow_type');
@@ -362,6 +364,7 @@
                     $upload.removeClass('disabled')
                 }
 
+              
             }
 
             function updateStatus() {
@@ -386,6 +389,18 @@
                 }
 
                 $info.html(text);
+
+                var successCount = $.grep(_this.fileList, function (item) {
+                    return item.state = "SUCCESS";
+                }).length;
+                var hasfileCount = _this.getQueueCount() + successCount;
+
+                if (hasfileCount >= uploader.options.fileNumLimit) {
+                    $filePickerBlock.hide();
+                }
+                else {
+                    $filePickerBlock.show();
+                }
             }
 
             uploader.on('fileQueued', function (file) {
@@ -401,8 +416,14 @@
             });
 
             uploader.on('fileDequeued', function (file) {
-                fileCount--;
-                fileSize -= file.size;
+                /* 检查文件格式 */
+                if (!file.ext || acceptExtensions.indexOf(file.ext.toLowerCase()) == -1) {
+                    //文件非法已经自动过滤了 防止重复 减文件
+                }
+                else {
+                    fileCount--;
+                    fileSize -= file.size;
+                }
 
                 removeFile(file);
                 updateTotalProgress();
