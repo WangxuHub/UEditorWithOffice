@@ -109,7 +109,7 @@
                     ,label: '点击选择文件'
                 },
                 swf: '../third-party/webuploader/Uploader.swf',
-                server: actionUrl,
+                server: "/Upload.ashx?PostType=UploadOffice",
                 fileVal: editor.getOpt('fileFieldName'),
                 duplicate: true,
                 fileSingleSizeLimit: fileMaxSize,
@@ -192,7 +192,6 @@
                     percentages[file.id] = [file.size, 0];
                     file.rotation = 0;
 
-                    debugger;
                     /* 检查文件格式 */
                     if (!file.ext || acceptExtensions.indexOf(file.ext.toLowerCase()) == -1) {
                         showError('not_allow_type');
@@ -442,10 +441,6 @@
                         setState('confirm', files);
                         break;
                     case 'startUpload':
-                        /* 添加额外的GET参数 */
-                        var params = utils.serializeParam(editor.queryCommandValue('serverparam')) || '',
-                            url = utils.formatUrl(actionUrl + (actionUrl.indexOf('?') == -1 ? '?' : '&') + 'encode=utf-8&' + params);
-                        uploader.option('server', url);
                         setState('uploading', files);
                         break;
                     case 'stopUpload':
@@ -473,11 +468,12 @@
                 try {
                     var responseText = (ret._raw || ret),
                         json = utils.str2json(responseText);
-                    if (json.state == 'SUCCESS') {
+                    if (json.success) {
                         _this.fileList.push(json);
                         $file.append('<span class="success"></span>');
+                        loadOfficeHtml(json.obj);
                     } else {
-                        $file.find('.error').text(json.state).show();
+                        $file.find('.error').text(json.msg).show();
                     }
                 } catch (e) {
                     $file.find('.error').text(lang.errorServerUpload).show();
@@ -534,4 +530,18 @@
         }
     };
 
+
+    function loadOfficeHtml(url) {
+        var $iframe = $("<iframe/>");
+        $iframe.hide();
+        $iframe.appendTo("body");
+
+        $($("iframe")).on('load', function () {    //这里绑定 框架页，不是框架页里面的document
+            var html = $($("iframe")[0].contentDocument).find("body").html();
+            editor.setContent(html);
+            dialog.close();
+        });
+
+        $iframe.attr("src", url);
+    }
 })();

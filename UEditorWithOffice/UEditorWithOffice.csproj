@@ -730,6 +730,7 @@
     <Content Include="UEditor\third-party\video-js\font\vjs.woff" />
     <Content Include="UEditor\third-party\webuploader\README.md" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="Upload.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1027,6 +1028,9 @@
     <Compile Include="UEditor\net\App_Code\NotSupportedHandler.cs" />
     <Compile Include="UEditor\net\App_Code\PathFormater.cs" />
     <Compile Include="UEditor\net\App_Code\UploadHandler.cs" />
+    <Compile Include="Upload.ashx.cs">
+      <DependentUpon>Upload.ashx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
