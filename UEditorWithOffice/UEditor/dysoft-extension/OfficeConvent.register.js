@@ -10,28 +10,28 @@ UE.registerUI('dysoftOfficeConvent', function (editor, uiName) {
         //指定dialog的名字
         name: 'attachment',
         //dialog的标题
-        title: "请上传office文档",
+        title: "请上传Word文档",
 
         //指定dialog的外围样式
        // cssRules: "width:600px;height:300px;",
 
         //如果给出了buttons就代表dialog有确定和取消
-        buttons: [
-            {
-                className: 'edui-okbutton',
-                label: '确定',
-                onclick: function () {
-                    dialog.close(true);
-                }
-            },
-            {
-                className: 'edui-cancelbutton',
-                label: '取消',
-                onclick: function () {
-                    dialog.close(false);
-                }
-            }
-        ]
+        //buttons: [
+        //    {
+        //        className: 'edui-okbutton',
+        //        label: '确定',
+        //        onclick: function () {
+        //            dialog.close(true);
+        //        }
+        //    },
+        //    {
+        //        className: 'edui-cancelbutton',
+        //        label: '取消',
+        //        onclick: function () {
+        //            dialog.close(false);
+        //        }
+        //    }
+        //]
     });
 
     //参考addCustomizeButton.js
@@ -39,7 +39,7 @@ UE.registerUI('dysoftOfficeConvent', function (editor, uiName) {
         name: 'dialogbutton' + uiName,
         title: '上传office文档',
         //需要添加的额外样式，指定icon图标，这里默认使用一个重复的icon
-        cssRules: 'background-position: -500px 0;',
+        cssRules: 'background-position: -300px 80px;',
         onclick: function () {
             //渲染dialog
             dialog.render();

@@ -18969,8 +18969,9 @@ UE.plugins['video'] = function (){
                     }
                     html.push('</tr>')
                 }
-                //禁止指定table-width
-                return '<table><tbody>' + html.join('') + '</tbody></table>'
+                //禁止指定table-width 
+                //2017-5-25 陈双宇 table上加上 .ueditor-table
+                return '<table class="ueditor-table"><tbody>' + html.join('') + '</tbody></table>'
             }
 
             if (!opt) {
@@ -19983,18 +19984,14 @@ UE.plugins['table'] = function () {
         "averagedistributerow":1
     };
     me.ready(function () {
+        //2017-5-25 陈双宇 修改table 筛选规则 加上.ueditor-table 前缀
         utils.cssRule('table',
             //选中的td上的样式
-            '.selectTdClass{background-color:#edf5fa !important}' +
-                'table.noBorderTable td,table.noBorderTable th,table.noBorderTable caption{border:1px dashed #ddd !important}' +
-                //插入的表格的默认样式
-                'table{margin-bottom:10px;border-collapse:collapse;display:table;}' +
-                'td,th{padding: 5px 10px;border: 1px solid #DDD;}' +
-                'caption{border:1px dashed #DDD;border-bottom:0;padding:3px;text-align:center;}' +
-                'th{border-top:1px solid #BBB;background-color:#F7F7F7;}' +
-                'table tr.firstRow th{border-top-width:2px;}' +
-                '.ue-table-interlace-color-single{ background-color: #fcfcfc; } .ue-table-interlace-color-double{ background-color: #f7faff; }' +
-                'td p{margin:0;padding:0;}', me.document);
+            '.selectTdClass{background-color:#edf5fa!important}table.noBorderTable caption,table.noBorderTable td,table.noBorderTable th{border:1px dashed #ddd!important}\
+             table.ueditor-table{margin-bottom:10px;border-collapse:collapse;display:table}table.ueditor-table td,table.ueditor-table th{padding:5px 10px;border:1px solid #ddd}\
+             table.ueditor-table caption{border:1px dashed #ddd;border-bottom:0;padding:3px;text-align:center}table.ueditor-table th{border-top:1px solid #bbb;background-color:#f7f7f7}\
+             table.ueditor-table tr.firstRow th{border-top-width:2px}.ue-table-interlace-color-single{background-color:#fcfcfc}.ue-table-interlace-color-double{background-color:#f7faff}\
+             table.ueditor-table td p{margin:0;padding:0}', me.document);
 
         var tableCopyList, isFullCol, isFullRow;
         //注册del/backspace事件

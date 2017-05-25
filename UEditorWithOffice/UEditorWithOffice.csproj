@@ -95,7 +95,9 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\xss.js" />
     <Content Include="Scripts\xss.min.js" />
+    <Content Include="StyleSheet1.css" />
     <Content Include="test.html" />
+    <Content Include="UEditor\dysoft-extension\images\word.png" />
     <Content Include="UEditor\local-resource\ueditor-list\dash.gif" />
     <Content Include="UEditor\local-resource\ueditor-list\dot.gif" />
     <Content Include="UEditor\local-resource\ueditor-list\list-cn-1-1.gif" />

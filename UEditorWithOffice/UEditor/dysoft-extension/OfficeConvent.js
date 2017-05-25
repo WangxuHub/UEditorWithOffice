@@ -13,6 +13,9 @@
         initButtons();
 
         uploadFile = uploadFile || new UploadFile('queueList');
+
+
+        loadOfficeHtml("/temp/602f0e07-cc08-4c91-92fe-8e1e24ee4f42.html");
     };
 
 
@@ -93,7 +96,7 @@
                 uploader,
                 actionUrl = editor.getActionUrl(editor.getOpt('fileActionName')),
                 fileMaxSize = editor.getOpt('fileMaxSize'),
-                acceptExtensions = "doc,docx,ppt,pptx,xls,xlsx,pdf";
+                acceptExtensions = "doc,docx";
 
             if (!WebUploader.Uploader.support()) {
                 $('#filePickerReady').after($('<div>').html(lang.errorNotSupport)).hide();
@@ -119,7 +122,7 @@
                 accept: {
                     title: 'office',
                     extensions: acceptExtensions,
-                    mimeTypes: '.doc,.docx,.ppt,.pptx,.xls,.xlsx,.pdf'
+                    mimeTypes: '.doc,.docx'
                 },
             });
             uploader.addButton({
@@ -532,12 +535,23 @@
 
 
     function loadOfficeHtml(url) {
+        debugger;
         var $iframe = $("<iframe/>");
         $iframe.hide();
         $iframe.appendTo("body");
 
         $($("iframe")).on('load', function () {    //这里绑定 框架页，不是框架页里面的document
-            var html = $($("iframe")[0].contentDocument).find("body").html();
+            var $body = $($("iframe")[0].contentDocument).find("body");
+            $body.find("img").each(function () {
+                var $item = $(this);
+                var src = $item.attr("src");
+                if (src.indexOf("/") != 0) {
+                    src = url.replace(/\/[^\/]*$/, "/" + src);
+                    $item.attr("src",src);
+                }
+            });
+
+            var html = $body.html();
             editor.setContent(html);
             dialog.close();
         });
