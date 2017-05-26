@@ -15,7 +15,7 @@
         uploadFile = uploadFile || new UploadFile('queueList');
 
 
-        loadOfficeHtml("/temp/602f0e07-cc08-4c91-92fe-8e1e24ee4f42.html");
+      //  loadOfficeHtml("/temp/367fdfc8-20b0-4a0e-b569-2ee1cd14cc3f.html");
     };
 
 
@@ -498,6 +498,12 @@
                     return false;
                 }
 
+
+                var formData = {
+                    conventPageType: $("input[name='conventPageType']:checked").val()
+                }
+
+                uploader.options.formData = formData;
                 if (state === 'ready') {
                     uploader.upload();
                 } else if (state === 'paused') {
@@ -545,11 +551,20 @@
             $body.find("img").each(function () {
                 var $item = $(this);
                 var src = $item.attr("src");
-                if (src.indexOf("/") != 0) {
-                    src = url.replace(/\/[^\/]*$/, "/" + src);
-                    $item.attr("src",src);
-                }
+                src = conventUrl(src, url);
+                $item.attr("src", src);
             });
+
+            //css文件引入
+            var $link = $($("iframe")[0].contentDocument).find("head link");
+            $link.each(function () {
+                var $item = $(this);
+                var src = $item.attr("href");
+                src = conventUrl(src, url);
+                $item.attr("href", src);
+            });
+
+            $link.prependTo($body);
 
             var html = $body.html();
             editor.setContent(html);
@@ -557,5 +572,13 @@
         });
 
         $iframe.attr("src", url);
+    }
+
+    //将相对url转换为绝对url 
+    function conventUrl(relativeUrl, absoluteUrl) {
+        if (relativeUrl.indexOf("/") != 0) {
+            return absoluteUrl.replace(/\/[^\/]*$/, "/" + relativeUrl);
+        }
+        return relativeUrl;
     }
 })();

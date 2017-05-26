@@ -400,7 +400,6 @@
 			header: [],
 			hr:     [],
 			i:      ['class', 'style'],
-			img:    ['src', 'alt', 'title', 'width', 'height', 'id', '_src', 'loadingclass', 'class', 'data-latex'],
 			ins:    ['datetime'],
 			li:     ['class', 'style'],
 			mark:   [],
@@ -425,7 +424,11 @@
 			tt:     [],
 			u:      [],
 			ul:     ['class', 'style'],
-			video:  ['autoplay', 'controls', 'loop', 'preload', 'src', 'height', 'width', 'class', 'style']
+			video: ['autoplay', 'controls', 'loop', 'preload', 'src', 'height', 'width', 'class', 'style'],
+
+            //2017-5-26 陈双宇 修改xss过滤
+			link: ['rel', 'type', 'href', 'media'],
+			img: ['src', 'alt', 'title', 'width', 'height', 'style', 'id', '_src', 'loadingclass', 'class', 'data-latex'],
 		}
     };
 

@@ -13754,12 +13754,13 @@ UE.plugin.register('anchor', function (){
 
     return {
         bindEvents:{
-            'ready':function(){
-                utils.cssRule('anchor',
-                    '.anchorclass{background: url(\''
-                        + this.options.themePath
-                        + this.options.theme +'/images/anchor.gif\') no-repeat scroll left center transparent;cursor: auto;display: inline-block;height: 16px;width: 15px;}',
-                    this.document);
+            'ready': function () {
+                //2017-5-26 陈双宇 取消 锚点样式 
+                //utils.cssRule('anchor',
+                //    '.anchorclass{background: url(\''
+                //        + this.options.themePath
+                //        + this.options.theme +'/images/anchor.gif\') no-repeat scroll left center transparent;cursor: auto;display: inline-block;height: 16px;width: 15px;}',
+                //    this.document);
             }
         },
        outputRule: function(root){

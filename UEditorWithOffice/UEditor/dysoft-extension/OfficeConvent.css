@@ -679,3 +679,8 @@ i.file-preview.file-type-png,
 i.file-preview.file-type-psd{
     background-position: -140px center;
 }
+
+input[name='conventPageType'] {
+    vertical-align:-3px;
+
+}

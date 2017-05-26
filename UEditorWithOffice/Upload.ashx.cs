@@ -53,6 +53,7 @@ namespace UEditorWithOffice
         protected void UploadOffice()
         {
             var file = con.Request.Files[0];
+            var conventPageType = con.Request["conventPageType"];
 
             var ext = System.IO.Path.GetExtension(file.FileName).ToLower();
 
@@ -61,7 +62,7 @@ namespace UEditorWithOffice
             {
                 case ".doc":
                 case ".docx":
-                    conventUrl = WordConvent(file);
+                    conventUrl = WordConvent(file, conventPageType);
                     break;
                 case ".ppt":
                 case ".pptx":
@@ -89,14 +90,20 @@ namespace UEditorWithOffice
 
         }
 
-        private string WordConvent(HttpPostedFile file)
+        private string WordConvent(HttpPostedFile file,string conventPageType)
         {
             Aspose.Words.Document doc = new Aspose.Words.Document(file.InputStream);
 
             var fileName = GetSaveHtmlName();
 
-            doc.Save(fileName, Aspose.Words.SaveFormat.Html);
-
+            if (conventPageType == "web")
+            {
+                doc.Save(fileName, Aspose.Words.SaveFormat.Html);
+            }
+            else if(conventPageType == "page")
+            {
+                doc.Save(fileName, Aspose.Words.SaveFormat.HtmlFixed);
+            }
             return fileName;
         }
 
