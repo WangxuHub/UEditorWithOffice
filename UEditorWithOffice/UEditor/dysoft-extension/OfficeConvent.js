@@ -15,7 +15,7 @@
         uploadFile = uploadFile || new UploadFile('queueList');
 
 
-      //  loadOfficeHtml("/temp/367fdfc8-20b0-4a0e-b569-2ee1cd14cc3f.html");
+        loadOfficeHtml("/temp/34411262-cca6-497c-958b-fb3100b93971.html");
     };
 
 
@@ -96,7 +96,7 @@
                 uploader,
                 actionUrl = editor.getActionUrl(editor.getOpt('fileActionName')),
                 fileMaxSize = editor.getOpt('fileMaxSize'),
-                acceptExtensions = "doc,docx";
+                acceptExtensions = "doc,docx,pptx";
 
             if (!WebUploader.Uploader.support()) {
                 $('#filePickerReady').after($('<div>').html(lang.errorNotSupport)).hide();

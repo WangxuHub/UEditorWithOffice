@@ -83,6 +83,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="34411262-cca6-497c-958b-fb3100b93971.html" />
     <Content Include="HtmlPage1.html" />
     <Content Include="Example\addCustomizeButton.js" />
     <Content Include="Example\addCustomizeCombox.js" />

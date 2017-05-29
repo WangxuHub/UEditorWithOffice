@@ -385,7 +385,7 @@
 			dd:     ['class', 'style'],
 			del:    ['datetime'],
 			details: ['open'],
-			div:    ['class', 'style'],
+			
 			dl:     ['class', 'style'],
 			dt:     ['class', 'style'],
 			em:     ['class', 'style'],
@@ -428,7 +428,20 @@
 
             //2017-5-26 陈双宇 修改xss过滤
 			link: ['rel', 'type', 'href', 'media'],
-			img: ['src', 'alt', 'title', 'width', 'height', 'style', 'id', '_src', 'loadingclass', 'class', 'data-latex'],
+			div: ['class', 'style', 'id'],
+
+		    //ppt svg 过滤
+			"svg": ["xmlns", "xmlns:xlink", "width", "height", "pointer-events", "viewBox", "version"],
+			img: ['src', 'alt', 'title', 'width', 'height', 'style', 'id', '_src', 'loadingclass', 'class', 'data-latex', 'preserveAspectRatio', 'xlink:href'],
+			defs: ['id'],
+			symbol: ['id', 'viewbox', 'preserveAspectRatio'],			"pattern": ["id", "x", "y", "width", "height", "patternUnits"],
+			"use": ["width", "height", "xlink:href", "preserveAspectRatio"],
+			"g": ["text-rendering", "pointer-events", "transform"],
+			"rect": ["x", "y", "width", "height", "fill"],
+			"text": ["font-family", "font-size", "fill"],
+			"tspan": ["x", "y", "textLength"],			"path": ["fill", "d"],
+			"image": ["width", "height", "preserveAspectRatio", "xlink:href"]
+
 		}
     };
 
